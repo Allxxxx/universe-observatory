@@ -1,0 +1,6 @@
+.scratch/
+data/
+generator-runs/
+node_modules/
+*.db*
+宇宙万物观测站/flightgen-image.tar

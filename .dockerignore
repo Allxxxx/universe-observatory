@@ -1,0 +1,8 @@
+.git
+.scratch
+data
+node_modules
+宇宙万物观测站
+*.tar
+generator-runs
+*.db*

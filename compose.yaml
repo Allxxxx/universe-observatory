@@ -1,0 +1,20 @@
+services:
+  observatory:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATA_DIR: /data
+      PORT: 8000
+    volumes:
+      - observatory-data:/data
+    cpus: 3.5
+    mem_limit: 3584m
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+volumes:
+  observatory-data:
